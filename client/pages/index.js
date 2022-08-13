@@ -17,7 +17,7 @@ export default function Home() {
         </h1>
 
         <h1 className="text-3xl font-bold underline">
-          Hello world!
+          Hello bibi I love you so much!
         </h1>
 
         <p className={styles.description}>
