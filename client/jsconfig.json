@@ -6,7 +6,8 @@
     "paths": {
       "Components/*": ["components/*"],
       "Pages/*": ["pages/*"],
-      "Styles/*": ["styles/*"]
+      "Styles/*": ["styles/*"],
+      "Images/*": ["public/images/*"]
     }
   },
   "exclude": ["node_modules", "dist"]
