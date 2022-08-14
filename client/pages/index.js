@@ -23,7 +23,9 @@ export default function Home() {
       <main className={styles.main}>
         <h1 className={styles.title}>
           Read <Link href="/posts/first-post">this page!</Link>
-          Watch <Link href="/twitch/alexelcapo">Alexelcapo</Link> twitch page
+        </h1>
+        <h1 className={styles.title}>
+        Watch <Link href="/twitch/alexelcapo">Alexelcapo</Link> twitch page
         </h1>
         
         <svg xmlns="http://www.w3.org/2000/svg" className="h-9 w-9" viewBox="0 0 20 20" fill="currentColor">
