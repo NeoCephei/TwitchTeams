@@ -10,5 +10,5 @@
     "push": "git add . && git commit -m 'pushed all with script' && git push"
   },
   "author": "",
-  "license": "ISC" 
+  "license": "ISC"
 }

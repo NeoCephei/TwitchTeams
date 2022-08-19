@@ -7,7 +7,9 @@
       "Components/*": ["components/*"],
       "Pages/*": ["pages/*"],
       "Styles/*": ["styles/*"],
-      "Images/*": ["public/images/*"]
+      "Images/*": ["public/images/*"],
+      "Redux/*": ["redux/*"],
+      
     }
   },
   "exclude": ["node_modules", "dist"]
