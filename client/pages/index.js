@@ -55,9 +55,7 @@ export default function Home() {
       /> */}
 			<Layout>
 				<main className={styles.main}>
-					<h1>
-						Go to watch <Link href="/twitch">twitch page</Link>
-					</h1>
+					<h1>Type the name of your streamer and go watch it</h1>
 					<Formik
 						initialValues={{
 							streamerName: '',
