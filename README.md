@@ -35,6 +35,7 @@ It is made with Next.js
 - [ ] Open twitch stream from user input.
 - [ ] Creation of custom lists.
 - [ ] Implementation of Buy me a coffee for anyone who wants to help.
+- [ ] I18n add different languages.
 - [ ] Allow the creation of rooms to use it with friends.
 - [ ] Deployment with private domain once the project finally works.
 
