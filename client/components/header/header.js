@@ -73,7 +73,7 @@ const GoBackOption = () => {
 
 	return (
 		<div>
-			<h2 onClick={handleRemoveAllStreamers}>
+			<h2 className="hover:cursor-pointer" onClick={handleRemoveAllStreamers}>
 				{router.pathname === '/' ? 'Go to Twitch Page' : 'Back to home'}
 			</h2>
 		</div>
