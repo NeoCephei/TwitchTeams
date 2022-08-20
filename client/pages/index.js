@@ -7,8 +7,6 @@ import Image from "next/image";
 import { Formik, Field, Form } from "formik";
 import _ from "lodash";
 
-import TwitchContainer from "./twitch";
-
 /* ====================================================== */
 /*                         Hooks                          */
 /* ====================================================== */
@@ -20,6 +18,12 @@ import { useSelector, useDispatch } from "react-redux";
 /* ====================================================== */
 
 import { addStreamer, removeStreamer, resetList } from "Redux/actions";
+
+/* ====================================================== */
+/*                       Components                       */
+/* ====================================================== */
+
+import Layout from "Components/layout/layout";
 
 /* ====================================================== */
 /*                         Styles                         */
@@ -35,10 +39,6 @@ export default function Home() {
   const dispatch = useDispatch();
   const streamers = useSelector((state) => state.streamers);
 
-  if (_.size(streamers)) {
-    return <TwitchContainer myList={streamers} />;
-  }
-
   return (
     <div className={styles.container}>
       <Head>
@@ -53,68 +53,33 @@ export default function Home() {
           console.log(`script loaded correctly, window.FB has been populated`)
         }
       /> */}
-      <header className={styles.header}>
-        <h1>
-          Watch <Link href="/twitch">twitch</Link> page
-        </h1>
-        <Formik
-          initialValues={{
-            streamerName: "",
-          }}
-          onSubmit={async (values, { resetForm }) => {
-            console.log(">>>>> resetForm:", resetForm);
-            const { streamerName } = values;
-            dispatch(addStreamer(streamerName));
-          }}
-        >
-          <Form>
-            <label htmlFor="streamerName">Streamer</label>
-            <Field
-              id="streamerName"
-              name="streamerName"
-              placeholder="Twitch channel"
-            />
+      <Layout>
+        <main className={styles.main}>
+          <h1>
+            Go to watch <Link href="/twitch">twitch page</Link>
+          </h1>
+          <Formik
+            initialValues={{
+              streamerName: "",
+            }}
+            onSubmit={async (values, { resetForm }) => {
+              const { streamerName } = values;
+              dispatch(addStreamer(streamerName));
+            }}
+          >
+            <Form>
+              <label htmlFor="streamerName">Streamer</label>
+              <Field
+                id="streamerName"
+                name="streamerName"
+                placeholder="Twitch channel"
+              />
 
-            <button type="submit">Submit</button>
-          </Form>
-        </Formik>
-      </header>
-
-      <main className={styles.main}>
-        <Formik
-          initialValues={{
-            streamerName: "",
-          }}
-          onSubmit={async (values, { resetForm }) => {
-            const { streamerName } = values;
-            dispatch(addStreamer(streamerName));
-          }}
-        >
-          <Form>
-            <label htmlFor="streamerName">Streamer</label>
-            <Field
-              id="streamerName"
-              name="streamerName"
-              placeholder="Twitch channel"
-            />
-
-            <button type="submit">Submit</button>
-          </Form>
-        </Formik>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+              <button type="submit">Submit</button>
+            </Form>
+          </Formik>
+        </main>
+      </Layout>
     </div>
   );
 }

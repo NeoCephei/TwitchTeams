@@ -1,7 +1,6 @@
 const initialState = [];
 
 const streamers = (state = initialState, action) => {
-  console.log(">>>>> action from reducer:", action);
   switch (action.type) {
     case "ADD_STREAMER": {
       return [...state, action.payload];
