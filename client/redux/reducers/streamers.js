@@ -1,19 +1,27 @@
-const initialState = [];
+import _ from 'lodash'
 
-const streamers = (state = initialState, action) => {
-  switch (action.type) {
-    case "ADD_STREAMER": {
-      return [...state, action.payload];
-    }
-    case "REMOVE_STREAMER": {
-      return state.filter((i) => i !== action.payload);
-    }
-    case "RESET_LIST": {
-      return initialState;
-    }
-    default:
-      return state;
-  }
-};
+/* ====================================================== */
+/*                    Implementation                      */
+/* ====================================================== */
 
-export default streamers;
+const INITIAL_STATE = []
+
+const streamers = (state = INITIAL_STATE, action) => {
+	switch (action.type) {
+		case 'ADD_STREAMER': {
+			const newState = _.includes(state, action.payload) ? state : [...state, action.payload]
+			return newState
+		}
+		case 'REMOVE_STREAMER': {
+			const newState = _.filter(state, (i) => i !== action.payload)
+			return newState
+		}
+		case 'RESET_LIST': {
+			return INITIAL_STATE
+		}
+		default:
+			return state
+	}
+}
+
+export default streamers

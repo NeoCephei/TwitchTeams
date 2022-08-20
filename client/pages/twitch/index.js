@@ -1,53 +1,57 @@
-import Link from "next/link";
+import React from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 
-import ReactPlayer from "react-player";
-import _ from "lodash";
+import _ from 'lodash'
+import ReactPlayer from 'react-player'
 
 /* ====================================================== */
 /*                         Hooks                          */
 /* ====================================================== */
 
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux'
 
 /* ====================================================== */
 /*                   Actions / Selectors                  */
 /* ====================================================== */
 
-import { addStreamer, removeStreamer, resetList } from "Redux/actions";
+import { removeStreamer, resetList } from 'Redux/actions'
+
+/* ====================================================== */
+/*                       Components                       */
+/* ====================================================== */
+
+import Layout from 'Components/layout/layout'
+
+/* ====================================================== */
+/*                    Implementation                      */
+/* ====================================================== */
 
 export default function TwitchExample() {
-  const dispatch = useDispatch();
-  const streamers = useSelector((state) => state.streamers);
-  const streaming = _.map(streamers, (streamerName) => {
-    return (
-      <ReactPlayer
-        key={streamerName}
-        url={`https://www.twitch.tv/${streamerName}`}
-        controls
-        playing
-      />
-    );
-  });
+	const dispatch = useDispatch()
+	const streamers = useSelector((state) => state.streamers)
 
-  const handleGoBack = () => {
-    dispatch(resetList());
-  };
+	React.useEffect(() => {}, [streamers])
 
-  if (_.isEmpty(streamers)) {
-    return (
-      <h2>
-        <Link href="/">Back to home</Link>
-      </h2>
-    );
-  }
-  return (
-    <>
-      <h2>
-        <Link href="/" onClick={handleGoBack}>
-          Back to home
-        </Link>
-      </h2>
-      <div>{streaming}</div>
-    </>
-  );
+	const streaming = _.map(streamers, (streamerName) => {
+		return (
+			<div>
+				<ReactPlayer key={streamerName} url={`https://www.twitch.tv/${streamerName}`} controls playing />
+
+				<h1
+					onClick={() => {
+						dispatch(removeStreamer(streamerName))
+					}}
+				>
+					Remove <span className="hover:cursor-pointer">{`${streamerName}`}</span>
+				</h1>
+			</div>
+		)
+	})
+
+	if (_.isEmpty(streamers)) {
+		return <Layout>This has to be an empty view</Layout>
+	}
+
+	return <Layout>{streaming}</Layout>
 }
