@@ -15,7 +15,7 @@ import { useSelector, useDispatch } from 'react-redux'
 /*                   Actions / Selectors                  */
 /* ====================================================== */
 
-import { removeStreamer, resetList } from 'Redux/actions'
+import { removeStreamer } from 'Redux/actions'
 
 /* ====================================================== */
 /*                       Components                       */

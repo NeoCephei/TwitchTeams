@@ -16,7 +16,7 @@ import { useSelector, useDispatch } from 'react-redux'
 /*                   Actions / Selectors                  */
 /* ====================================================== */
 
-import { addStreamer } from 'Redux/actions'
+import { addStreamer, resetList } from 'Redux/actions'
 
 /* ====================================================== */
 /*                         Styles                         */
@@ -66,15 +66,16 @@ const GoBackOption = () => {
 	const dispatch = useDispatch()
 	const router = useRouter()
 
-	const handleGoBack = () => {
+	const handleRemoveAllStreamers = () => {
 		dispatch(resetList())
+		router.push(router.pathname === '/' ? '/twitch' : '/')
 	}
 
 	return (
-		<h2>
-			<Link href={router.pathname === '/' ? '/twitch' : '/'} onClick={handleGoBack}>
+		<div>
+			<h2 onClick={handleRemoveAllStreamers}>
 				{router.pathname === '/' ? 'Go to Twitch Page' : 'Back to home'}
-			</Link>
-		</h2>
+			</h2>
+		</div>
 	)
 }
