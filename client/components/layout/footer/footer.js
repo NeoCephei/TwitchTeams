@@ -8,7 +8,7 @@ import _ from 'lodash'
 /*                         Styles                         */
 /* ====================================================== */
 
-import styles from 'Styles/Home.module.css'
+import styles from 'Styles/layout/Layout.module.css'
 
 /* ====================================================== */
 /*                    Implementation                      */
@@ -23,7 +23,7 @@ export default function Footer() {
 				rel="noopener noreferrer"
 			>
 				Powered by{' '}
-				<span className={styles.logo}>
+				<span>
 					<Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
 				</span>
 			</a>

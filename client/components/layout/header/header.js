@@ -1,7 +1,5 @@
 import React from 'react'
 
-import Link from 'next/link'
-
 import { Formik, Field, Form } from 'formik'
 import _ from 'lodash'
 
@@ -10,7 +8,7 @@ import _ from 'lodash'
 /* ====================================================== */
 
 import { useRouter } from 'next/router'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 /* ====================================================== */
 /*                   Actions / Selectors                  */
@@ -22,7 +20,7 @@ import { addStreamer, resetList } from 'Redux/actions'
 /*                         Styles                         */
 /* ====================================================== */
 
-import styles from 'Styles/Home.module.css'
+import styles from 'Styles/layout/Layout.module.css'
 
 /* ====================================================== */
 /*                    Implementation                      */
@@ -30,7 +28,6 @@ import styles from 'Styles/Home.module.css'
 
 export default function Header() {
 	const dispatch = useDispatch()
-	const streamers = useSelector((state) => state.streamers)
 	const router = useRouter()
 
 	return (
@@ -49,7 +46,7 @@ export default function Header() {
 			>
 				<Form>
 					<label htmlFor="streamerName">Streamer</label>
-					<Field id="streamerName" name="streamerName" placeholder="Twitch channel" />
+					<Field id="streamerName" name="streamerName" placeholder="Twitch channel" autocomplete="off" />
 
 					<button type="submit">Submit</button>
 				</Form>

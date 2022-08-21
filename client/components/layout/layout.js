@@ -2,14 +2,14 @@
 /*                       Components                       */
 /* ====================================================== */
 
-import Header from 'Components/header/header'
-import Footer from 'Components/footer/footer'
+import Header from 'Components/layout/header/header'
+import Footer from 'Components/layout/footer/footer'
 
 /* ====================================================== */
 /*                         Styles                         */
 /* ====================================================== */
 
-import styles from 'Styles/Home.module.css'
+import styles from 'Styles/layout/Layout.module.css'
 
 /* ====================================================== */
 /*                    Implementation                      */
@@ -17,9 +17,9 @@ import styles from 'Styles/Home.module.css'
 
 export default function Layout({ children }) {
 	return (
-		<div>
+		<div className={styles.container}>
 			<Header />
-			<div className={styles.main}>{children}</div>
+			<main className={styles.main}>{children}</main>
 			<Footer />
 		</div>
 	)

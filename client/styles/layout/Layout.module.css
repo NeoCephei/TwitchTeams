@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background-color: #222;
+}
+
+.header{  
+  height: 5vh;
+  background-color: aqua;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main{
+  height: 90vh;
+}
+
+.footer{
+  height: 5vh;
+  background-color: #0070f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

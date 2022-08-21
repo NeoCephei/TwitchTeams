@@ -31,9 +31,7 @@ export default function TwitchExample() {
 	const dispatch = useDispatch()
 	const streamers = useSelector((state) => state.streamers)
 
-	React.useEffect(() => {}, [streamers])
-
-	const streaming = _.map(streamers, (streamerName) => {
+	const streamings = _.map(streamers, (streamerName) => {
 		return (
 			<div>
 				<ReactPlayer key={streamerName} url={`https://www.twitch.tv/${streamerName}`} controls playing />
@@ -53,5 +51,5 @@ export default function TwitchExample() {
 		return <Layout>This has to be an empty view</Layout>
 	}
 
-	return <Layout>{streaming}</Layout>
+	return <Layout>{streamings}</Layout>
 }
