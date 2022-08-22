@@ -32,7 +32,11 @@ export default function Header() {
 
 	return (
 		<header className={styles.header}>
-			<GoBackOption />
+			<DevTool />
+			{/* 
+			//! I use this dev tool right now just in order to navigate around my pages.
+			//* In the future in will be just a logo or name of the website to take you to the landing page
+			*/}
 			<Formik
 				initialValues={{
 					streamerName: '',
@@ -46,7 +50,7 @@ export default function Header() {
 			>
 				<Form>
 					<label htmlFor="streamerName">Streamer</label>
-					<Field id="streamerName" name="streamerName" placeholder="Twitch channel" autocomplete="off" />
+					<Field id="streamerName" name="streamerName" placeholder="Twitch channel" autocomplete="on" />
 
 					<button type="submit">Submit</button>
 				</Form>
@@ -59,7 +63,7 @@ export default function Header() {
 /*                       Helpers                          */
 /* ====================================================== */
 
-const GoBackOption = () => {
+const DevTool = () => {
 	const dispatch = useDispatch()
 	const router = useRouter()
 

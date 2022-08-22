@@ -3,12 +3,15 @@
   flex: 1;
   flex-direction: column;
   background-color: #222;
+  overflow: hidden;
 }
 
 .header{  
   height: 5vh;
   background-color: aqua;
   display: flex;
+  padding: 0 10px;
+  align-items: center;
   justify-content: space-between;
 }
 

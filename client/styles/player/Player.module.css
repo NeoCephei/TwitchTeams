@@ -1,0 +1,22 @@
+/* .options {
+  height: 90vh;
+  background-color: aliceblue;
+} */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 90vh;
+  background-color: aquamarine;
+}
+
+.streamingsContainer {
+  max-height: 90vh;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
