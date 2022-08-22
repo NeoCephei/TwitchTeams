@@ -13,15 +13,6 @@
   cursor: pointer;
 }
 
-/* .wrapper {
-  box-sizing: border-box;
-  resize: horizontal;
-  overflow: auto;
-  max-width: 100%;
-  height: calc(100vh - 16px);
-  aspect-ratio: 16 / 9;
-  max-height: 100%;
-} */
 
 .streamItem {
   position: relative;
@@ -39,3 +30,9 @@
   width: 0;
   padding-bottom: calc(9/16 * 100%);
 } */
+
+@media (max-width: 700px) {
+  .streamItem {
+    width: 100% !important;
+  }
+}
