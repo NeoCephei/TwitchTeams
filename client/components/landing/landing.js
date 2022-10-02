@@ -39,7 +39,7 @@ export function Landing({}) {
 			>
 				<Form>
 					<label htmlFor="streamerName">Streamer</label>
-					<Field id="streamerName" name="streamerName" placeholder="Twitch channel" autocomplete="off" />
+					<Field id="streamerName" name="streamerName" placeholder="Twitch channel" />
 
 					<button type="submit">Submit</button>
 				</Form>

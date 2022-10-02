@@ -49,8 +49,8 @@ export function VideoStream({ streamerName, qty }) {
 
 	return (
 		<div
-			className={styles.streamItem}
-			style={{ width: qty > 6 ? '33%' : qty > 3 ? '50%' : '100%' }}
+			// className={styles.streamItem}
+			// style={{ width: qty > 6 ? '33%' : qty > 3 ? '50%' : '100%' }}
 			onMouseEnter={handleMouseEnterVideoPlayer}
 			onMouseLeave={handleMouseLeaveVideoPlayer}
 		>
