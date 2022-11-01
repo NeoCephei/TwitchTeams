@@ -32,7 +32,7 @@ It is made with Next.js
 ## Future Plans
 
 - [x] Deployment for online usage.
-- [ ] Open twitch stream from user input.
+- [x] Open twitch stream from user input.
 - [ ] Creation of custom lists.
 - [ ] Implementation of Buy me a coffee for anyone who wants to help.
 - [ ] I18n add different languages.
