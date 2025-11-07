@@ -34,8 +34,6 @@ import styles from 'Styles/video/Video.module.css'
 /* ====================================================== */
 
 export function VideoStream({ streamerName, qty }) {
-	//todo: Add tooltip to the closeIcon
-	//todo: Make the close icon change size relative to the stream
 	const dispatch = useDispatch()
 	const [showCloseIcon, setShowCloseIcon] = React.useState(false)
 
@@ -49,14 +47,12 @@ export function VideoStream({ streamerName, qty }) {
 
 	return (
 		<div
-			// className={styles.streamItem}
-			// style={{ width: qty > 6 ? '33%' : qty > 3 ? '50%' : '100%' }}
+			className="relative w-full h-full min-h-[400px]"
 			onMouseEnter={handleMouseEnterVideoPlayer}
 			onMouseLeave={handleMouseLeaveVideoPlayer}
 		>
 			<ReactPlayer
 				key={streamerName}
-				// wrapper={VideoWrapper}
 				url={`https://www.twitch.tv/${streamerName}`}
 				controls
 				playing
@@ -65,21 +61,16 @@ export function VideoStream({ streamerName, qty }) {
 			/>
 
 			{showCloseIcon && (
-				<div
-					className={styles.closeButton}
+				<button
+					className="absolute top-2 right-2 bg-red-600 hover:bg-red-700 rounded-full p-2 cursor-pointer transition-colors z-10"
 					onClick={() => {
 						dispatch(removeStreamer(streamerName))
 					}}
+					aria-label={`Remove ${streamerName}`}
 				>
 					<Image src={closeIcon} alt="close Icon" width={20} height={20} />
-				</div>
+				</button>
 			)}
 		</div>
 	)
 }
-
-/* ====================================================== */
-/*                       Helpers                          */
-/* ====================================================== */
-
-const VideoWrapper = ({ children }) => <div>{children}</div>

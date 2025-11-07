@@ -32,22 +32,32 @@ import styles from 'Styles/player/Player.module.css'
 export default function Streamings() {
 	const streamers = useSelector((state) => state.streamers)
 
-	const streamings = _.map(streamers, (streamerName) => {
-		const numberOfStreamings = _.size(streamers)
-		return <VideoStream streamerName={streamerName} qty={numberOfStreamings} />
+	const totalStreams = streamers.length
+	
+	// Calculamos el número de columnas y filas para un grid balanceado
+	const cols = Math.ceil(Math.sqrt(totalStreams))
+	const rows = Math.ceil(totalStreams / cols)
+
+	const streamings = streamers.map((streamerName) => {
+		return <VideoStream key={streamerName} streamerName={streamerName} qty={totalStreams} />
 	})
 
-	const totalStreams = _.size(streamers)
-	const shape = _.round(Math.sqrt(totalStreams))
-	const result = `grid-cols-${shape} grid-rows-${shape}`
-
-	if (_.isEmpty(streamers)) {
+	if (streamers.length === 0) {
 		return <Layout>Seems you haven't select any streamer yet</Layout>
 	}
 
 	return (
 		<Layout>
-			<div className={`grid grid-flow-col ${result} gap-10 bg-gray-200 min-w-full`}>{streamings}</div>
+			<div 
+				className="gap-2 bg-gray-900 min-w-full min-h-screen p-2"
+				style={{
+					display: 'grid',
+					gridTemplateColumns: `repeat(${cols}, 1fr)`,
+					gridTemplateRows: `repeat(${rows}, 1fr)`,
+				}}
+			>
+				{streamings}
+			</div>
 		</Layout>
 	)
 }

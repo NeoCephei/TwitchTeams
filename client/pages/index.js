@@ -24,13 +24,6 @@ export default function Home() {
 				<meta name="description" content="Watch all your streamers at the same time in one tab!" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			{/* <Script
-        src="https://connect.facebook.net/en_US/sdk.js"
-        strategy="lazyOnload"
-        onLoad={() =>
-          console.log(`script loaded correctly, window.FB has been populated`)
-        }
-      /> */}
 			<Layout>
 				<Landing />
 			</Layout>
